@@ -3,6 +3,7 @@ from routes.ItemRoute import router as ItemRouter
 from routes.CategoryRoute import router as CategoryRouter
 from routes.RoleRoute import router as RoleRouter
 from routes.UserRoute import router as UserRouter
+from routes.BrandRoute import router as BrandRouter
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
@@ -17,6 +18,7 @@ app.add_middleware(
 app.include_router(ItemRouter)
 app.include_router(CategoryRouter)
 app.include_router(RoleRouter)
+app.include_router(BrandRouter)
 app.include_router(UserRouter)
 @app.get("/")
 async def root():

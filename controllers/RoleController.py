@@ -12,7 +12,7 @@ async def get_roles():
     roles = await role_collection.find().to_list(1000)
     return [Role(**role) for role in roles]
 
-async def delete_role(type: str):
-    result = await role_collection.delete_one({"type": type})
+async def delete_role():
+    result = await role_collection.delete_many({})
     print(result)
     return {"message": "Role deleted successfully"}
