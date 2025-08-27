@@ -16,3 +16,7 @@ async def delete_test(test_id: str):
 @router.get("/test")
 async def Alltest():
     return await get_all_tests()
+
+@router.get("/get-test-by-id/{test_id}")
+async def get_test_by_id(test_id: str):
+    return await get_all_tests(test_id)
