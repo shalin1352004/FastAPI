@@ -19,4 +19,4 @@ async def getallusers():
 
 @router.delete("/delete-user/{user_id}")
 async def deleteuser(user_id: str):
-    return await delete_user_by_id(user_i)
+    return await delete_user_by_id(user_id)
