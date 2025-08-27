@@ -1,7 +1,6 @@
 from fastapi import HTTPException
 from config.database import user_collection
 from models.UserModel import User
-
 async def get_user_by_id(email: str):
     user = await user_collection.find_one({"email": email})
     if user:
@@ -15,3 +14,7 @@ async def create_user(user: User):
         return {"error": "User with this email already exists."}
     result = await user_collection.insert_one(user.dict())
     return {**user.dict()}
+
+async def getAllUsers():
+	allUsers=await user_collection.find().to_list(1000)
+	return [User(**user)for user in allUsers]

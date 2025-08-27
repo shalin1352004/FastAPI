@@ -12,3 +12,5 @@ category_collection = db["category"]
 role_collection = db["role"]
 user_collection = db["user"]
 brand_collection = db["brand"]
+test_collection = db["test"]
+

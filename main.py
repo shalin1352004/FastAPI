@@ -4,6 +4,7 @@ from routes.CategoryRoute import router as CategoryRouter
 from routes.RoleRoute import router as RoleRouter
 from routes.UserRoute import router as UserRouter
 from routes.BrandRoute import router as BrandRouter
+from routes.TestRoute import router as TestRouter
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
@@ -20,6 +21,7 @@ app.include_router(CategoryRouter)
 app.include_router(RoleRouter)
 app.include_router(BrandRouter)
 app.include_router(UserRouter)
+app.include_router(TestRouter)
 @app.get("/")
 async def root():
     return {"message": "Welcome to the Learning Tool API"}
