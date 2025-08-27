@@ -16,5 +16,6 @@ async def get_all_tests():
 async def get_test_by_id(test_id: str):
     result = await test_collection.find_one({"_id": ObjectId(test_id)})
     if result:  # Remove MongoDB _id field
+        result.pop("_id", None)
         return Test(**result)
     return None
