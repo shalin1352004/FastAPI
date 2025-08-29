@@ -17,3 +17,12 @@ async def get_item_by_id(item_id: str):
         result.pop("_id", None)  # Remove MongoDB _id field
         return Item(**result)
     return None
+
+
+async def update_item(item_id: str, item: Item):
+    result = await items_collection.update_one(
+        {"_id": ObjectId(item_id)}, {"$set": item.dict()}
+    )
+    if result.modified_count:
+        return {**item.dict()}
+    return None                                 

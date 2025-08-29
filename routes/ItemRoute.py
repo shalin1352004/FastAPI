@@ -18,3 +18,9 @@ async def get_all_items():
 @router.get("/item/{item_id}")
 async def GetItemById(item_id: str):
     return await get_item_by_id(ObjectId(item_id))
+
+@router.put("/update-item/{item_id}")
+async def update_item(item_id: str, item: Item):            
+    return await update_item(item_id, item)     
+# New endpoint to update an item
+# as --- IGNORE ---                             
